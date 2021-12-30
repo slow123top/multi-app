@@ -1,0 +1,24 @@
+<div>
+  <div class="file-list">
+    <img
+      class="file-list__img"
+      :src="item&&item.path"
+      alt="图片"
+      v-for="item in value"
+      :key="item.id||item.path"
+    />
+    <div class="file-list__button_upload">
+      <span class="file-list__button_upload__icon"></span>
+    </div>
+    <input
+      class="file-list__input_hidden"
+      ref="fileInput"
+      type="file"
+      :accept="accept"
+      :multiple="multiple"
+      name="attach"
+      @input="input"
+      @change="change"
+    />
+  </div>
+</div>

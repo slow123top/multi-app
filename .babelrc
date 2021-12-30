@@ -1,0 +1,18 @@
+{
+  "presets": [
+    [
+      "@vue/babel-preset-jsx",
+      {
+        "injectH": false
+      }
+    ],
+    [
+      "@babel/preset-env",
+      {
+        "modules": false,
+        "useBuiltIns": "usage"
+      }
+    ]
+  ],
+  "plugins": ["transform-vue-jsx", "@babel/plugin-transform-runtime"]
+}

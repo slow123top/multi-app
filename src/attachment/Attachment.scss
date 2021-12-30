@@ -1,0 +1,18 @@
+.file-list {
+    display: flex;
+    flex-direction: row;
+
+    &__img {
+        flex: 1;
+        width: 80px;
+        height: 80px;
+    }
+
+    &__input_hidden {
+        // display: none;
+    }
+
+    &__button_upload {
+        @extend .file-list__img;
+    }
+}
