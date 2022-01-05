@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "webpack serve --config ./build/webpack/webpack.dev.js",
-    "build": "webpack --config ./build/webpack/webpack.prod.js"
+    "build": "webpack --config ./build/webpack/webpack.prod.js",
+    "build:promise": "node ./utils/promise/promise.js"
   },
   "author": "无问西东",
   "license": "ISC",

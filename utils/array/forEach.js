@@ -4,7 +4,7 @@ if (!Array.prototype.forEach) {
         if (!this) {
             console.error('this is not defined');
         }
-        this = thisArg || this;
+        // this指的是数组实例
         const arr = Object(this);
         if (Object.prototype.toString.call(cb) !== '[object Function]' || typeof cb !== 'function') {
             console.error(cb + 'is not a function')

@@ -21,7 +21,7 @@
   },
   "plugins": ["vue", "@typescript-eslint"],
   "rules": {
-    "quotes": ["warn", "double"],
+    "quotes": ["warn", "single"],
     "no-undef": "error"
   }
 }
