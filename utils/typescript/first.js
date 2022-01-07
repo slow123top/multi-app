@@ -17,11 +17,30 @@ function second() {
         console.log("second(): called");
     };
 }
-class ExampleClass {
-    method() { }
+var ExampleClass = /** @class */ (function () {
+    function ExampleClass() {
+    }
+    ExampleClass.prototype.method = function () { };
+    ExampleClass.a = function () { };
+    __decorate([
+        first()
+    ], ExampleClass.prototype, "method", null);
+    return ExampleClass;
+}());
+// const a = new ExampleClass()
+// console.log(a.method());
+function sealed(constructor) {
+    Object.seal(constructor);
+    Object.seal(constructor.prototype);
 }
-__decorate([
-    first(),
-    second()
-], ExampleClass.prototype, "method", null);
-new ExampleClass().first();
+var BugReport = /** @class */ (function () {
+    function BugReport(t) {
+        this.type = "report";
+        this.title = t;
+    }
+    BugReport = __decorate([
+        sealed
+    ], BugReport);
+    return BugReport;
+}());
+console.log((new BugReport('asdas')).title);

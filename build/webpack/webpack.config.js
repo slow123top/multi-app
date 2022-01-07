@@ -15,6 +15,10 @@ module.exports = {
                 use: "vue-loader"
             },
             // 解析ES5+到ES5
+            // {
+            //     test:,
+            //     use:''
+            // },
             {
                 test: /\.js?$/,
                 use: "babel-loader",

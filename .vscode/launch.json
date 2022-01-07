@@ -5,6 +5,19 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "npm bind",
+            "request": "launch",
+            "runtimeArgs": [
+                "run-script",
+                "build:bind"
+            ],
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "pwa-node"
+        },
+        {
             "name": "npm promise",
             "request": "launch",
             "runtimeArgs": [
