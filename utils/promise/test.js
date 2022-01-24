@@ -103,7 +103,6 @@ function resolvePromise(promise, x, resolve, reject) {
         } catch (e) {
             reject(e);
         }
-
         if (typeof then === 'function') {
             let called = false;
             try {

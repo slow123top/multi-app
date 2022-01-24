@@ -1,0 +1,2 @@
+// 访问器属性getter应该是由__defineGetter__实现的
+// 访问器属性setter应该是由__defineSetter__实现的

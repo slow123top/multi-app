@@ -239,7 +239,7 @@ function resolvePromise(promise2, x, resolve, reject) {
 // var promise = new HPromise(f)
 
 var promise = Promise.resolve(222);
-var promise1 = new HPromise((resolve, reject) => {
+var promise1 = new Promise((resolve, reject) => {
     // setTimeout(() => {
     resolve(22)
     // })
@@ -250,4 +250,4 @@ promise
         console.log(result)
     })
 
-console.log(promise);
+console.log(promise1);

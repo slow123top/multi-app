@@ -1,5 +1,5 @@
 import { Dep } from "./Dep";
-import {watchers} from './watcher';
+import { watchers } from './watcher';
 
 export const observer = (obj) => {
     if (typeof obj !== 'object' || obj === null) {
@@ -26,7 +26,7 @@ class Observer {
     }
 }
 
-defineReactive(obj, key, val){
+function defineReactive(obj, key, val) {
     observer(val);
     const dep = new Dep();
     Object.defineProperty(obj, key, {
