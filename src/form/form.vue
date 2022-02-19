@@ -1,12 +1,18 @@
 <template>
-  <input type="text" name="aa" :value="val" @input="input" />
+  <form>
+    <slot>表单</slot>
+  </form>
 </template>
 <script>
 export default {
   props: {
-    val: {
+    value: {
       type: String,
       default: "",
+    },
+    name: {
+      type: String,
+      default: "text",
     },
   },
   data() {

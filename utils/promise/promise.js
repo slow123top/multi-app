@@ -103,9 +103,9 @@ class HPromise {
         // Pending转为FulFilled状态
         if (this.promiseState === HPromise.PENDING) {
             // 保证resolve是异步的
+            this.promiseState = HPromise.FULFILLED;
+            this.promiseResult = val;
             setTimeout(() => {
-                this.promiseState = HPromise.FULFILLED;
-                this.promiseResult = val;
                 this.onFulFilledBacks.forEach(fn => {
                     fn(this.promiseResult);
                 });
@@ -116,9 +116,9 @@ class HPromise {
     reject(reason) {
         if (this.promiseState === HPromise.PENDING) {
             // 保证reject执行是异步的
+            this.promiseState = HPromise.REJETCED;
+            this.promiseResult = reason;
             setTimeout(() => {
-                this.promiseState = HPromise.REJETCED;
-                this.promiseResult = reason;
                 this.onRejectedBacks.forEach(fn => {
                     fn(this.promiseResult);
                 })
@@ -234,9 +234,6 @@ function resolvePromise(promise2, x, resolve, reject) {
 
 }
 
-// export default HPromise;
-
-// var promise = new HPromise(f)
 
 var promise = Promise.resolve(222);
 var promise1 = new Promise((resolve, reject) => {

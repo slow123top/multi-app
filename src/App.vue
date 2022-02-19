@@ -1,17 +1,12 @@
 <template>
   <div>
-    <!-- <Attachment ref='attachment' v-model='fileList'></Attachment> -->
-    <input type="text" name="" v-model="name" />
-    <p>{{ dataObj.cc }}</p>
-    <button @click="chooseFile">双向绑定</button>
-    <button @click="addProp">改变对象</button>
+    {{ name }}
+    <button @click="updateName">更改name</button>
   </div>
 </template>
 <script>
-import Button from "./button/Button.vue";
-// import Icon from './icon/Icon.vue';
 import Attachment from "./attachment/Attachment.vue";
-import TextInput from "./input/text.vue";
+import TextInput from "./form/input/text.vue";
 export default {
   name: "app",
   data() {
@@ -25,14 +20,19 @@ export default {
       // fileList: [],
     };
   },
+  computed: {
+    text: function() {
+      return this.name + "aaa";
+    },
+  },
   components: {
     TextInput,
     Attachment,
   },
   mounted() {
-    this.$watch('dataObj.cc',function(newVal,val){
-      console.log('cc');
-    })
+    this.$watch("dataObj.cc", function(newVal, val) {
+      console.log("cc");
+    });
   },
 
   // render() {
@@ -56,6 +56,9 @@ export default {
     addProp() {
       this.$set(this.dataObj, "cc", "eee");
       // this.dataObj.cc=11;
+    },
+    updateName() {
+      this.name = "胡玉洋";
     },
   },
 };

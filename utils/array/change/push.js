@@ -3,7 +3,6 @@ if (!Array.prototype.push) {
         var len = arguments.length;
         for (var i = 0; i < len; i++) {
             this[this.length] = arguments[i];
-            console.log(i);
         }
         return this.length;
     }

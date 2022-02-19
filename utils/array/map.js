@@ -7,7 +7,7 @@ if (!Array.prototype.map) {
         var thisObj = thisArg || window;
         var k = 0;
         var res = new Array(arr.length);
-        while (k !== arguments.length - 1) {
+        while (k !== arr.length - 1) {
             for (k in arr) {
                 if (arr[k] !== undefined) {
                     res.push(cb.call(thisObj, arr[k], k, arr));
