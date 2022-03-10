@@ -1,46 +1,27 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-function first() {
-    console.log("first(): factory evaluated");
+function enumerable(value) {
     return function (target, propertyKey, descriptor) {
-        console.log("first(): called");
+        descriptor.enumerable = value;
     };
 }
-function second() {
-    console.log("second(): factory evaluated");
-    return function (target, propertyKey, descriptor) {
-        console.log("second(): called");
-    };
-}
-var ExampleClass = /** @class */ (function () {
-    function ExampleClass() {
+var Emp = /** @class */ (function () {
+    function Emp(aa) {
+        this.aa = aa;
     }
-    ExampleClass.prototype.method = function () { };
-    ExampleClass.a = function () { };
+    Emp.prototype.preintA = function () {
+        return this.aa;
+    };
     __decorate([
-        first()
-    ], ExampleClass.prototype, "method", null);
-    return ExampleClass;
+        enumerable(false)
+    ], Emp.prototype, "preintA");
+    return Emp;
 }());
-// const a = new ExampleClass()
-// console.log(a.method());
-function sealed(constructor) {
-    Object.seal(constructor);
-    Object.seal(constructor.prototype);
+for (var i in new Emp('AA')) {
+    console.log(i);
 }
-var BugReport = /** @class */ (function () {
-    function BugReport(t) {
-        this.type = "report";
-        this.title = t;
-    }
-    BugReport = __decorate([
-        sealed
-    ], BugReport);
-    return BugReport;
-}());
-console.log((new BugReport('asdas')).title);
+// console.log(Object.getOwnPropertyDescriptor(new Emp('AA'), 'preintA'));

@@ -1,10 +1,5 @@
 <template>
-  <div>
-    <ul>
-      <li v-for="item in $slots" :key="item.id" @click="change(item.id)">
-        <span>{{ item.title }}</span>
-      </li>
-    </ul>
+  <div class="tab-item" v-if="active">
     <slot></slot>
   </div>
 </template>
@@ -12,36 +7,38 @@
 export default {
   name: "hy-tab",
   props: {
-    direction: {
+    title: {
       type: String,
       default: "",
     },
-    size: {
-      type: Number,
-      default: 16,
-    },
-    value: {
+    content: {
       type: String,
       default: "",
     },
+    id: {
+      type: String,
+      default: "",
+    },
+  },
+  mounted() {
+    // if (this.$parent) {
+    //   const list = this.$parent.list;
+    //   const thisVm = list && list.find((l) => l.id === this.id);
+    //   if (!thisVm) {
+    //     this.$parent.list.push(this);
+    //   }
+    // }
   },
   data() {
     return {
       // iconStyle: {},
     };
   },
-  mounted() {
-    // 初始化  确定显示哪一个标签页
-    this.$slots.default.forEach((slot) => {
-      if (slot.tag === "div") {
-        
-      }
-    });
-  },
-  methods: {
-    change(e) {
-      this.$emit("input", e);
+  computed: {
+    active() {
+      return this.$parent.value === this.id;
     },
   },
+  methods: {},
 };
 </script>

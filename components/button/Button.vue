@@ -1,52 +1,66 @@
 <template>
   <button :class="['hy-btn', 'hy-btn-' + type]" @click="trigger">
+    {{ a }}
     <span>
       <slot>默认内容</slot>
       <!-- <a href="">{{ userName }}</a> -->
     </span>
+    {{ text }}
   </button>
 </template>
 <script>
 export default {
   name: "hy-button",
+  inject: {
+    foo: {
+      from: "bar",
+      default: "aa",
+    },
+  },
   props: {
     text: {
       type: String,
       default: "",
+      required: true,
     },
     type: {
-      type: String,
+      type: [Boolean, String],
       default: "default",
     },
-    disabled: {
-      type: Boolean,
+    "disabled-click": {
+      type: [Boolean, String],
       default: false,
     },
-    userName: {
-      type: String,
-      default: "",
-    },
-  },
-  data() {
-    return {};
-  },
-  directives: {
-    disabled: {
-      inserted(el, binding) {},
-      binding(el, binding, vnode) {
-        el.disabled = true;
+    userName: "username",
+    array: {
+      type: Object,
+      default: () => {
+        return { a: 1 };
       },
     },
   },
+  data() {
+    return {
+      a: "哈哈",
+    };
+  },
+  directives: {},
   methods: {
     trigger(e) {
+      if (this.disabledClick === true) {
+        return;
+      }
       console.log(this.$slots);
-      this.$emit("click", e);
+      this.$emit("button-click", e);
     },
   },
   computed: {},
+  mounted() {
+    console.log(this.foo);
+    this.$on("button-click", function() {
+      this.a = "aaaa";
+    });
+  },
 };
 </script>
-<style src="./Button.scss" lang="scss" scoped>
-
-</style>
+<style src="./Button.scss" lang="scss" scoped></style>

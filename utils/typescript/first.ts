@@ -1,37 +1,26 @@
-function first() {
-    console.log("first(): factory evaluated");
+function enumerable(value: boolean) {
     return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-        console.log("first(): called");
+        descriptor.enumerable = value;
     };
 }
-function second() {
-    console.log("second(): factory evaluated");
-    return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-        console.log("second(): called");
-    };
-}
-class ExampleClass {
-    @first()
-    method() { }
-    static a(){}
-}
-// const a = new ExampleClass()
 
-// console.log(a.method());
+class Emp {
+    aa: string;
+    constructor(aa: string) {
+        this.aa = aa;
+    }
 
-function sealed(constructor: Function) {
-    Object.seal(constructor);
-    Object.seal(constructor.prototype);
-}
-
-@sealed
-class BugReport {
-    type = "report";
-    title: string;
-
-    constructor(t: string) {
-        this.title = t;
+    @enumerable(false)
+    preintA() {
+        return this.aa;
     }
 }
 
-console.log((new BugReport('asdas')).title);
+// type B = { a: string };
+// const b: B = { a: '' };
+// console.log(b);
+for (let i in new Emp('AA')) {
+    console.log(i);
+}
+
+// console.log(Object.getOwnPropertyDescriptor(new Emp('AA'), 'preintA'));

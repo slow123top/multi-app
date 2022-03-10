@@ -1,5 +1,5 @@
-<template src="./Attachment.html"> </template>
-<style src="./Attachment.scss" lang="scss" scoped></style>
+<template src="./Uploader.html"> </template>
+<style src="./Uploader.scss" lang="scss" scoped></style>
 <script>
 import { uuid } from "./utils/attachment";
 export default {

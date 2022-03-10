@@ -1,5 +1,5 @@
 if (!Array.prototype.some) {
-    Array.prototype.some = (cb, thisArg) => {
+    Array.prototype.some = function (cb, thisArg) {
         let T, k;
         if (!this) {
             new TypeError('this is not defined');
@@ -14,7 +14,7 @@ if (!Array.prototype.some) {
             }
             k++;
         }
+
+        return false;
     }
-    return false;
-}
 }

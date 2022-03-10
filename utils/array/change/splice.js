@@ -1,6 +1,3 @@
-const index = require("@vue/babel-preset-jsx");
-const { f } = require("core-js/modules/_object-dp");
-
 // if (Array.prototype.splice) {
 Array.prototype.splice = function () {
     if (!this) {

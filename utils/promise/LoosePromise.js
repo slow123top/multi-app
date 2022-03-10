@@ -226,7 +226,6 @@ LoosePromise.prototype.finally = function (callback) {
         value => P.resolve(callback()).then(() => value),
         reason => P.resolve(callback()).then(() => { throw reason })
     );
-
 }
 /**
  * 根据promiseA+规范
@@ -268,8 +267,6 @@ function resolvePromise(promise, returnValue, resolve, reject) {
         resolve(returnValue);
     }
 }
-
-
 
 function isDef(value) {
     return value !== null && value !== undefined;
