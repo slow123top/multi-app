@@ -1,6 +1,6 @@
 //直接调用indexOf
-if (!Array.prototype.indexOf) {
-    Array.prototype.indexOf = function (searchElement) {
+if (!Array.prototype.includes) {
+    Array.prototype.includes = function (searchElement) {
         // 省略校验
         // var index = startIndex || 0;
         var len = arguments.length;

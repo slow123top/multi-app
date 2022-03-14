@@ -36,6 +36,5 @@ Array.prototype.slice = function(begin, end) {
         }
       }
     }
-
     return cloned;
   };

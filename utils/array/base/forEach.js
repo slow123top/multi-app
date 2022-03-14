@@ -14,7 +14,7 @@ if (!Array.prototype.forEach) {
         }
         k = 0;
         while (k < arr.length) {
-            for (k in arr) {
+            if (k in arr) {
                 const value = arr[k];
                 // T若为undefined  T指向全局  相当于window
                 cb.call(T, value, k, arr);

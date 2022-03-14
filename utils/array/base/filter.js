@@ -12,11 +12,12 @@ if (!Array.prototype.filter) {
         var len = this.length;
         var res = [];
         while (k !== len) {
-            for (k in arr) {
+            if (k in arr) {
                 if (cb.call(T, arr[k], k, arr)) {
                     res.push(arr[k]);
                 }
             }
+            k++;
         }
         return res;
 

@@ -14,7 +14,6 @@ if (!Array.prototype.some) {
             }
             k++;
         }
-
         return false;
     }
 }
