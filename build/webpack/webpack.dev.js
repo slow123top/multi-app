@@ -10,6 +10,11 @@ module.exports = merge(common, {
                 test: /\.vue$/,
                 use: "vue-loader"
             },
+            // {
+            //     test: /\.ts$/,
+            //     loader: 'ts-loader',
+            //     options: { appendTsSuffixTo: [/\.vue$/] }
+            // },
             // 解析ES5+到ES5
             {
                 test: /\.js?$/,

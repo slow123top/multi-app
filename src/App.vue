@@ -2,17 +2,28 @@
   <div>
     <!-- <div v-if="name === '名称'">{{ name }}</div>
     <div v-if="name === '胡玉洋'">{{ name }}</div> -->
-    <!-- <button @click="updateName">更改数据</button> -->
-    <hy-tabs v-model="id">
-      <hy-tab id="a" title="tab1">标签一</hy-tab>
-      <hy-tab id="b" title="tab2">标签二</hy-tab>
+    <button @click="updateName">更改数据</button>
+    <hy-tabs v-model="id" v-if="id">
+      <hy-tab :id="item.id" :title="item.title" v-for="item in list">{{
+        item.name
+      }}</hy-tab>
     </hy-tabs>
+    <div>
+      <p>段落</p>
+      <div>块级block</div>
+    </div>
+    <div>
+      <p>段落1</p>
+      <div>块级block1</div>
+    </div>
+    <hy-table :data="data" :columns="columns"></hy-table>
   </div>
 </template>
 <script>
 // import Attachment from "./attachment/Attachment.vue";
 // import TextInput from "./form/input/text.vue";
 import HyButton from "../components/button/Button.vue";
+import HyTable from "../components/table/Table.vue";
 import HyTab from "../components/tab/Tab.vue";
 import HyTabs from "../components/tab/tabs/Tabs.vue";
 export default {
@@ -26,7 +37,34 @@ export default {
   data() {
     return {
       name: "名称",
-      id: "a",
+      id: "aa",
+      list: [
+        { id: "aa", title: "tab1", name: "标签1" },
+        { id: "bb", title: "tab2", name: "标签2" },
+        { id: "cc", title: "tab3", name: "标签3" },
+      ],
+      data: [
+        {
+          id: "11",
+          value: "sa",
+          name: "sa",
+        },
+        {
+          id: "22",
+          value: "sa1",
+          name: "sa2",
+        },
+      ],
+      columns: [
+        {
+          field: "value",
+          title: "第一列",
+        },
+        {
+          field: "name",
+          title: "第二列",
+        },
+      ],
       // dataObj: {
       //   a: 1,
       //   b: "AA",
@@ -46,10 +84,21 @@ export default {
   //     return this.name + "aaa";
   //   },
   // },
+  watch: {
+    name: [
+      function() {
+        this.count();
+      },
+      function() {
+        this.count1();
+      },
+    ],
+  },
   components: {
     // TextInput,
     // Attachment,
     HyButton,
+    HyTable,
     HyTab,
     HyTabs,
   },
@@ -74,9 +123,13 @@ export default {
   //   );
   // },
   methods: {
-    // count() {
-    //   this.title = "网页";
-    // },
+    count() {
+      console.log(11);
+    },
+    count1() {
+      console.log(3233);
+      this.title = "haha";
+    },
     // updateArr() {
     //   this.arr.splice(0, 0, "aa");
     // },
