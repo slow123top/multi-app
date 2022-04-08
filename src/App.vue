@@ -1,12 +1,24 @@
 <template>
   <div>
+    <span>行内元素</span>
+    <span>行内元素</span>
+    <span>行内元素</span>
+    <span>行内元素</span>
+    <span>行内元素</span>
+    <span>行内元素</span>
     <!-- <div v-if="name === '名称'">{{ name }}</div>
     <div v-if="name === '胡玉洋'">{{ name }}</div> -->
-    <button @click="updateName">更改数据</button>
-    <hy-tabs v-model="id" v-if="id">
-      <hy-tab :id="item.id" :title="item.title" v-for="item in list">{{
-        item.name
-      }}</hy-tab>
+    <button ref="button" @click="updateName">更改数据</button>
+    <button @click="triggerNextTick">触发nextTick</button>
+    <button @click="mountTable">挂载table组件</button>
+    <hy-tabs :value.sync="id" v-if="id">
+      <hy-tab
+        ref="tab"
+        :id="item.id"
+        :title="item.title"
+        v-for="item in list"
+        >{{ item.name }}</hy-tab
+      >
     </hy-tabs>
     <div>
       <p>段落</p>
@@ -16,12 +28,16 @@
       <p>段落1</p>
       <div>块级block1</div>
     </div>
-    <hy-table :data="data" :columns="columns"></hy-table>
+    {{ name }}
+    <div id="table"></div>
+    <span>{{ id }}</span>
+    <!-- <hy-table :data="data" :columns="columns"></hy-table> -->
   </div>
 </template>
 <script>
 // import Attachment from "./attachment/Attachment.vue";
 // import TextInput from "./form/input/text.vue";
+import Vue from "vue";
 import HyButton from "../components/button/Button.vue";
 import HyTable from "../components/table/Table.vue";
 import HyTab from "../components/tab/Tab.vue";
@@ -129,6 +145,28 @@ export default {
     count1() {
       console.log(3233);
       this.title = "haha";
+    },
+    triggerNextTick() {
+      this.name = "AAA";
+      this.$nextTick(() => {
+        console.log("DOM更新了!");
+      });
+    },
+    mountTable() {
+      const that = this;
+      const tableCmp = Vue.extend({
+        template: '<hy-table :data="data" :columns="columns"></hy-table>',
+        data() {
+          return {
+            data: that.data,
+            columns: that.columns,
+          };
+        },
+        components: {
+          HyTable,
+        },
+      });
+      new tableCmp().$mount("#table");
     },
     // updateArr() {
     //   this.arr.splice(0, 0, "aa");

@@ -8,20 +8,20 @@
 var arraySlice = [].slice;
 var factories = {};
 
-// Function.prototype.bind = function (that) {
-//     // 绑定的是一个函数
-//     var fn = aFunction(this);
-//     // 获取第二个参数   就是绑定函数的参数列表，是一个数组
-//     var partArgs = arraySlice.call(arguments, 1);
-//     var bound = function (/* args... */) {
-//         var args = partArgs.concat(arraySlice.call(arguments));
-//         return this instanceof bound ? construct(fn, args.length, args) : invoke(fn, args, that);
-//         // return invoke(fn, args, that);
-//     };
-//     // 继承
-//     if (isObject(fn.prototype)) bound.prototype = fn.prototype;
-//     return bound;
-// }
+Function.prototype.bind = function (that) {
+    // 绑定的是一个函数
+    var fn = aFunction(this);
+    // 获取第二个参数   就是绑定函数的参数列表，是一个数组
+    var partArgs = arraySlice.call(arguments, 1);
+    var bound = function (/* args... */) {
+        var args = partArgs.concat(arraySlice.call(arguments));
+        return this instanceof bound ? construct(fn, args.length, args) : invoke(fn, args, that);
+        // return invoke(fn, args, that);
+    };
+    // 继承
+    if (isObject(fn.prototype)) bound.prototype = fn.prototype;
+    return bound;
+}
 
 
 var construct = function (F, len, args) {

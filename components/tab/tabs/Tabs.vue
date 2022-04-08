@@ -31,7 +31,7 @@ export default {
     },
   },
   data() {
-    return {
+    return { 
       active: false,
       activeId: "",
       list: [],
@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     change(e) {
-      this.$emit("input", e);
+      this.$emit("update:value", e);
     },
   },
 };
