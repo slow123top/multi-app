@@ -58,6 +58,14 @@
       "runtimeExecutable": "npm",
       "skipFiles": ["<node_internals>/**"],
       "type": "pwa-node"
+    },
+    {
+      "name": "build babel",
+      "request": "launch",
+      "runtimeArgs": ["run-script", "build:babel"],
+      "runtimeExecutable": "npm",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "pwa-node"
     }
   ]
 }

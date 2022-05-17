@@ -1,36 +1,11 @@
 <template>
   <div>
-    <span>行内元素</span>
-    <span>行内元素</span>
-    <span>行内元素</span>
-    <span>行内元素</span>
-    <span>行内元素</span>
-    <span>行内元素</span>
-    <!-- <div v-if="name === '名称'">{{ name }}</div>
-    <div v-if="name === '胡玉洋'">{{ name }}</div> -->
-    <button ref="button" @click="updateName">更改数据</button>
-    <button @click="triggerNextTick">触发nextTick</button>
-    <button @click="mountTable">挂载table组件</button>
-    <hy-tabs :value.sync="id" v-if="id">
-      <hy-tab
-        ref="tab"
-        :id="item.id"
-        :title="item.title"
-        v-for="item in list"
-        >{{ item.name }}</hy-tab
-      >
-    </hy-tabs>
-    <div>
-      <p>段落</p>
-      <div>块级block</div>
-    </div>
-    <div>
-      <p>段落1</p>
-      <div>块级block1</div>
-    </div>
-    {{ name }}
-    <div id="table"></div>
-    <span>{{ id }}</span>
+    <button @click="jump('/page1')">跳转1</button>
+    <button @click="jump('/page2')">跳转2</button>
+    <button @click="jump('/page3')">跳转3</button>
+    <button @click="jump('/page4')">跳转4</button>
+    <router-view></router-view>
+    <span></span>
     <!-- <hy-table :data="data" :columns="columns"></hy-table> -->
   </div>
 </template>
@@ -181,6 +156,9 @@ export default {
     updateName() {
       this.name = "胡玉洋";
     },
+    jump(page){
+      this.$router.push(page);
+    }
   },
 };
 </script>

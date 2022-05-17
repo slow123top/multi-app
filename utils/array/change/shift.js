@@ -1,4 +1,4 @@
-// if (!Array.prototype.shift) {
+// if (!Array.prototype.shift) {  最长子串
 Array.prototype.shift = function () {
     var arr = Object(this);
     if (!arr) {

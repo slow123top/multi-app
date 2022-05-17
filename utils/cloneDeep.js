@@ -5,7 +5,7 @@
  */
 function cloneDeep(value) {
     // 如果是不合法的  直接返回
-    if (!isObj(value)) {
+    if (!isPalinObj(value)) {
         return value;
     }
     // 如果是Array类型
@@ -17,7 +17,7 @@ function cloneDeep(value) {
     const keys = Object.keys(value);
     const cloneObj = {};
     for (var i = 0; i < keys.length; i++) {
-        if (!isArray(value[keys[i]]) && !isObj(value[keys[i]])) {
+        if (!isArray(value[keys[i]]) && !isPalinObj(value[keys[i]])) {
             cloneObj[keys[i]] = value[keys[i]];
         } else {
             cloneObj[keys[i]] = arguments.callee(value[keys[i]])
@@ -26,7 +26,7 @@ function cloneDeep(value) {
     return cloneObj;
 }
 // 包含Function  Rex Date Array等
-function isObj(value) {
+function isPalinObj(value) {
     return typeof value === 'object' && value !== null;
 }
 
