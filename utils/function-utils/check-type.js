@@ -5,4 +5,9 @@ export function dataType(value) {
     return Object.prototype.toString.call(value).slice(8, -1);
 }
 
+// 判断是否是一个函数
+export function isFunction(func) {
+    return typeof func === 'function';
+}
+
 // 
