@@ -265,6 +265,11 @@ class TPromise {
         });
     }
 
+    /**
+     * 只要有一个成功  就返回  和all相反
+     * @param {*} promiseList 
+     * @returns 
+     */
     static any(promiseList) {
         return new TPromise(function (resolve, reject) {
             if (!Array.isArray(promiseList)) {
