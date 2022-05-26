@@ -15,12 +15,11 @@ const debounce = function (func, delay) {
         const that = this;
         // 保留参数
         const args = arguments;
-        const argsList = Array.from(args);
         if (timer) {
             clearTimeout(timer);
         }
         timer = setTimeout(() => {
-            func.call(that, ...argsList);
+            func.apply(that, args);
         }, delay);
     }
 }
@@ -42,12 +41,11 @@ const throttling = function (func, period) {
         const that = this;
         // 保留参数
         const args = arguments;
-        const argsList = Array.from(args);
         if (timer) {
             return;
         }
         timer = setTimeout(() => {
-            func.call(that, ...argsList);
+            func.apply(that, args);
             timer = null;
         }, period);
     }
