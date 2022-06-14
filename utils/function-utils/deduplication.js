@@ -32,7 +32,6 @@ function valueDeduplication(value) {
         return str;
     }
     if (valueType === 'String') {
-        console.log('asad');
         let str = '';
         // 如果不存在Symbol.iterator
         for (const item of value) {

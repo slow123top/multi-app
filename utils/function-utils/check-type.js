@@ -9,5 +9,3 @@ export function dataType(value) {
 export function isFunction(func) {
     return typeof func === 'function';
 }
-
-// 

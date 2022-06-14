@@ -71,4 +71,4 @@ function b() {
 
 bindFunction(b, { cc: 33 })();
 
-
+export { callFunction, applyFunction, bindFunction };
