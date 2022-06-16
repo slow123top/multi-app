@@ -10,11 +10,11 @@ function sort(arr, left, right) {
     let j = right;
     const base = arr[left];
     while (i < j) {
-        while (i < j && arr[j] > base) {
+        while (i < j && arr[j] >= base) {
             j--;
         }
         arr[i] = arr[j];
-        while (i < j && arr[i] < base) {
+        while (i < j && arr[i] <= base) {
             i++;
         }
         arr[j] = arr[i]
@@ -26,4 +26,5 @@ function sort(arr, left, right) {
     return arr;
 }
 
-console.log(quickSort([5,3,7,6,4,1,0,2,9,10,8]));
+exports.quickSort = quickSort;
+console.log(quickSort([5, 3, 7, 6, 4, 1, 0, 2, 9, 10, 8]));
