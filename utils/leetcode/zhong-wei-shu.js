@@ -1,4 +1,4 @@
-const quickSort = require('../sort-agri/quick-sort');
+const quickSort = require('../sort-agroi/quick-sort');
 
 /**
  * 两个正序数组的中位数

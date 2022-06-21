@@ -2,8 +2,7 @@ const erfenchazhao = (str, arr) => {
     let right = arr.length;
     let left = 0;
     while (left <= right) {
-        const mid = Math.floor(Number((left + right) / 2));
-        console.log(mid);
+        const mid = Math.floor((left + right) / 2);
         if (str === arr[mid]) {
             return mid;
         } else if (str < arr[mid]) {
