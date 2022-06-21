@@ -19,12 +19,13 @@ var r1 = readline.createInterface({
 const lines = [];
 r1.on('line', function (line) {
     lines.push(line);
-    if (lines.length > 3 && (lines.length - 3 === Number(lines[2]))) {
-        const param2 = lines[1].split(' ');
-        const param4 = lines.slice(3);
-        const res = temp(lines[0], param2, lines[2], param4.map(p => p.split(' ')));
-        const result = res.join(' ').replace(/\s+/g, '\n');
-        console.log(result);
+    if (lines.length > 3) {
+        // const param2 = lines[1].split(' ');
+        // const param4 = lines.slice(3);
+        // const res = temp(lines[0], param2, lines[2], param4.map(p => p.split(' ')));
+        // const result = res.join(' ').replace(/\s+/g, '\n');
+        console.log(lines);
     }
+    // console.log(line);
 });
-readline()
+// readline()

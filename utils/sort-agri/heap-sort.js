@@ -9,7 +9,6 @@ function heapSort(arr) {
         tempArr[len - 1] = temp;
         list[len - 1] = tempArr.splice(len - 1, 1)[0];
     }
-
     return list;
 }
 /**
@@ -32,15 +31,7 @@ function buildHeap(arr) {
             parentIndex = Math.floor((j - 1) / 2);
         }
     }
-    console.log(arr);
     return arr;
-}
-// 根节点和尾部交换  移除尾节点
-
-function swap(a, b) {
-    const temp = a;
-    a = b;
-    b = temp;
 }
 
 console.log(heapSort([8, 5, 3, 2, 1]));
