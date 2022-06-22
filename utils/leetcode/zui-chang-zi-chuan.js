@@ -25,4 +25,4 @@ const checkStr = function (s) {
     return Math.max(...arr);
 }
 
-console.log(checkStr('dvdf'));
+console.log(checkStr('dvdfdefrhvvbyn'));
