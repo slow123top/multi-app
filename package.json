@@ -10,7 +10,8 @@
     "build:bind": "node ./utils/function/bind.js",
     "build:test": "node ./utils/setTimeout.js",
     "build:babel": "node ./transform.js",
-    "install": "npm install"
+    "install": "npm install",
+    "run:baohan":"node ./utils/leetcode/da-shu-xiang-cheng.js"
   },
   "author": "无问西东",
   "license": "ISC",

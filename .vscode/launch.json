@@ -5,6 +5,19 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch baohan",
+      "request": "launch",
+      "runtimeArgs": [
+        "run-script",
+        "run:baohan"
+      ],
+      "runtimeExecutable": "npm",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
+    },
+    {
       "name": "npm install",
       "request": "launch",
       "runtimeArgs": ["run-script", "install"],
