@@ -7,10 +7,10 @@ import "./hy.scss";
 Vue.use(Vuex);
 Vue.use(Router);
 new Vue({
-    // el: "#app",
+    el: "#app",
     // render: h => h(App),
     components: {
         App,
     },
     router
-}).$mount('#app');
+});

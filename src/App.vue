@@ -1,12 +1,12 @@
 <template>
   <div>
-    <button @click="jump('/page1')">跳转1</button>
-    <button @click="jump('/page2')">跳转2</button>
-    <button @click="jump('/page3')">跳转3</button>
-    <button @click="jump('/page4')">跳转4</button>
+    <span>
+      {{ name }}
+      {{ id }}
+    </span>
+    <button @click="setValue()">修改值</button>
     <router-view></router-view>
     <span></span>
-    <!-- <hy-table :data="data" :columns="columns"></hy-table> -->
   </div>
 </template>
 <script>
@@ -76,14 +76,7 @@ export default {
   //   },
   // },
   watch: {
-    name: [
-      function() {
-        this.count();
-      },
-      function() {
-        this.count1();
-      },
-    ],
+    
   },
   components: {
     // TextInput,
@@ -114,6 +107,10 @@ export default {
   //   );
   // },
   methods: {
+    setValue() {
+      this.name = "胡玉洋";
+      this.id = "aaa";
+    },
     count() {
       console.log(11);
     },
@@ -156,9 +153,9 @@ export default {
     updateName() {
       this.name = "胡玉洋";
     },
-    jump(page){
+    jump(page) {
       this.$router.push(page);
-    }
+    },
   },
 };
 </script>

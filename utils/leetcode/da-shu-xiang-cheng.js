@@ -12,7 +12,6 @@ function dashuxiangcheng(num1, num2) {
         const num2A = num2ToArray[i];
         let quotient = 0;
         const rest = (new Array(num2Len - 1 - i)).fill(0);
-        // console.log(rest);
         result = [].concat(rest);
         for (let j = num1ToArray.length - 1; j >= 0; j--) {
             // num2的一位乘以num1的每一位

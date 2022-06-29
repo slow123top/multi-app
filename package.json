@@ -11,7 +11,7 @@
     "build:test": "node ./utils/setTimeout.js",
     "build:babel": "node ./transform.js",
     "install": "npm install",
-    "run:baohan":"node ./utils/leetcode/da-shu-xiang-cheng.js"
+    "run:baohan":"node ./utils/leetcode/gui-fan-path.js"
   },
   "author": "无问西东",
   "license": "ISC",
