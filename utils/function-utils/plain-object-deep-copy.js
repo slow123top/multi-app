@@ -52,7 +52,54 @@ function deepCopyPlainObject(object) {
 
 const obj = { a: { b: 1 }, c: [2, { r: 4, t: 0 }] };
 const obj1 = [1, 2, 3, '45', { r: 3, f: { e: 9, i: 0 } }];
-console.log(deepCopy(obj1));
-console.log(deepCopy(obj) === obj);
+// console.log(deepCopy(obj1));
+// console.log(deepCopy(obj) === obj);
 
+function deepClone(obj) {
+    if (!obj || typeof obj !== 'object') {
+        return {};
+    }
+    if (isArr(obj)) {
+        return deepCloneArray(obj);
+    } else if (plainObject(obj)) {
+        return deepCloneObject(obj);
+    }
+}
+const isArr = Array.isArray;
+const plainObject = (obj) => {
+    return typeof obj === 'object' && obj !== null;
+}
 
+const deepCloneArray = (arr) => {
+    const colnedArr = [];
+    for (let i = 0; i < obj.length; i++) {
+        const value = arr[i];
+        if (isArray(value)) {
+            colnedArr[i] = deepCopyArray(value);
+        } else if (plainObject(value)) {
+            colnedArr[i] = deepCloneObject(value);
+        } else {
+            colnedArr[i] = value;
+        }
+    }
+    return colnedArr;
+}
+
+const deepCloneObject = (obj) => {
+    const colnedObj = {};
+    const keyList = Object.keys(obj);
+    for (let i = 0; i < keyList.length; i++) {
+        const key = keyList[i];
+        const value = obj[key];
+        if (isArray(value)) {
+            colnedObj[key] = deepCopyArray(value);
+        } else if (plainObject(value)) {
+            colnedObj[key] = deepCloneObject(value);
+        } else {
+            colnedObj[key] = value;
+        }
+    }
+    return colnedObj;
+}
+const aa = { a: { w: 2, e: 44 } };
+console.log(deepClone(aa) === aa);

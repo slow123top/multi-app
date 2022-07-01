@@ -1,4 +1,4 @@
-// Object.assign 用于赋值对象，只能拷贝源对象的自身属性且该属性是可枚举的
+// Object.assign 用于赋值对象，只能浅拷贝源对象的自身属性且该属性是可枚举的
 if (typeof Object.assign !== 'function') {
     Object.defineProperty(Object, 'assign', {
         value: function (target, src) {

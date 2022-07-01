@@ -4,7 +4,7 @@ const symbol = {
     '}': '{',
     ']': '[',
     ')': '('
-}
+};
 function kuohao(str) {
     let stack = [];
     let i = 0;

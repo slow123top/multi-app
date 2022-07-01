@@ -22,7 +22,7 @@ export default {
         "application/msexcel,application/msword,application/vnd.ms-powerpoint,application/pdf,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain",
     },
     // 是否多选
-    multiple: {
+    multiple: {                                                                                                                                                                                                                  
       type: Boolean,
       default: true,
     },

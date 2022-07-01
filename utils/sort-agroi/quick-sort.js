@@ -28,3 +28,30 @@ function sort(arr, left, right) {
 
 exports.quickSort = quickSort;
 console.log(quickSort([5, 3, 7, 6, 4, 1, 0, 2, 9, 10, 8]));
+
+function quickSort1(arr) {
+    return sort1(arr, 0, arr.length - 1);
+}
+
+function sort1(arr, left, right) {
+    if (left > right) {
+        return;
+    }
+    let i = left;
+    let j = right;
+    const base = arr[i];
+    while (i < j) {
+        while (i < j && arr[j] >= base) {
+            j--;
+        }
+        arr[i] = arr[j];
+        while (i < j && arr[i] <= base) {
+            i++;
+        }
+        arr[j] = arr[i];
+    }
+    arr[i] = base;
+    sort(arr, left, j - 1);
+    sort(arr, i + 1, right);
+    return arr;
+}
