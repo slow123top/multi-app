@@ -18,6 +18,19 @@
       "type": "node"
     },
     {
+      "name": "Launch shuzi",
+      "request": "launch",
+      "runtimeArgs": [
+        "run-script",
+        "run:shuzi"
+      ],
+      "runtimeExecutable": "npm",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
+    },
+    {
       "name": "npm install",
       "request": "launch",
       "runtimeArgs": ["run-script", "install"],

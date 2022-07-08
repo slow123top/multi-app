@@ -11,7 +11,8 @@
     "build:test": "node ./utils/setTimeout.js",
     "build:babel": "node ./transform.js",
     "install": "npm install",
-    "run:baohan": "node ./utils/leetcode/gui-fan-path.js"
+    "run:baohan": "node ./utils/leetcode/gui-fan-path.js",
+    "run:shuzi": "node ./utils/leetcode/string/san-shu-zhihe.js"
   },
   "author": "无问西东",
   "license": "ISC",
@@ -24,7 +25,8 @@
     "reflect-metadata": "^0.1.13",
     "vue": "^2.6.14",
     "vue-router": "^2.8.0",
-    "vuex": "^4.0.2"
+    "vuex": "^4.0.2",
+    "web-vitals": "^2.1.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.8",
