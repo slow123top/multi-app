@@ -35,7 +35,7 @@ function quickSort1(arr) {
 
 function sort1(arr, left, right) {
     if (left > right) {
-        return;
+        return arr;
     }
     let i = left;
     let j = right;
@@ -54,4 +54,35 @@ function sort1(arr, left, right) {
     sort(arr, left, j - 1);
     sort(arr, i + 1, right);
     return arr;
+}
+
+
+
+
+
+
+
+
+
+function sort2(arr, left, right) {
+    if (left > right) {
+        return arr;
+    }
+    let i = left;
+    let j = right;
+    let base = arr[i];
+    while (i < j) {
+        if (arr[j] >= base) {
+            j--;
+        }
+        arr[i] = arr[j];
+        if (arr[i] <= base) {
+            i++;
+        }
+        arr[j] = arr[i];
+    }
+    arr[i] = base;
+    sort2(arr, left, j - 1);
+    sort2(arr, i + 1, right);
+
 }

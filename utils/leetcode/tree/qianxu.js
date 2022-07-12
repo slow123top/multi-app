@@ -1,3 +1,3 @@
-function qianxu(arr) {
-
+function qianxuIterator(arr) {
+    
 }
