@@ -12,7 +12,7 @@
     "build:babel": "node ./transform.js",
     "install": "npm install",
     "run:baohan": "node ./utils/leetcode/gui-fan-path.js",
-    "run:shuzi": "node ./utils/leetcode/string/san-shu-zhihe.js"
+    "run:shuzi": "node ./test.js"
   },
   "author": "无问西东",
   "license": "ISC",
