@@ -18,9 +18,9 @@ class LoosePromise {
         this.onRejecteds = [];
         // 执行参数
         try {
-            func(function (value) {
+            func((value) => {
                 this.resolve(value)
-            }, function (reason) {
+            }, (reason) => {
                 this.reject(reason);
             })
         } catch (e) {
@@ -272,12 +272,15 @@ function isDef(value) {
     return value !== null && value !== undefined;
 }
 
-new LoosePromise(function (resolve, reject) {
-    return 22
-}).then(function (value) {
-    return value;
-}).finally(function () {
-    console.log(44);
-})
+function runAsync(x) {
+    const p = new LoosePromise(r =>
+        setTimeout(() =>
+            r(x, console.log(x)),
+            1000)
+    )
+    return p
+}
+
+LoosePromise.all([runAsync(1), runAsync(2), runAsync(3)]).then(res => console.log(res))
 
 

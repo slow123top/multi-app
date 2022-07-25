@@ -17,3 +17,16 @@ function testProxy() {
 const testProxy1 = testProxy();
 testProxy1.set(0, 'sadsa')
 console.log(testProxy1);
+
+
+
+function dataProxy(data) {
+    Object.defineProperty('data', {
+        get: () => {
+            return data;
+        },
+        set(newVal) {
+            
+        }
+    });
+}
