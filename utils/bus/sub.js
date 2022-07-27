@@ -16,7 +16,6 @@ class EventBus {
             }
         }
     }
-
     // once(name, ...params) {
     //     if (this.tag) {
     //         return;
