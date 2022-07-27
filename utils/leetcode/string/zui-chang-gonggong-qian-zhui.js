@@ -12,7 +12,6 @@ function zuichanggonggongqianzhui(strs) {
     }
     let qianzhui = '';
     let list = strs.filter((item, index) => index !== minLenStrIndex);
-    console.log(list);
     while (minLenStr.length) {
         const first = minLenStr[0];
         const all = list.every(item => item.indexOf(first) === 0);

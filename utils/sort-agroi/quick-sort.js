@@ -56,14 +56,6 @@ function sort1(arr, left, right) {
     return arr;
 }
 
-
-
-
-
-
-
-
-
 function sort2(arr, left, right) {
     if (left > right) {
         return arr;
@@ -84,5 +76,4 @@ function sort2(arr, left, right) {
     arr[i] = base;
     sort2(arr, left, j - 1);
     sort2(arr, i + 1, right);
-
 }

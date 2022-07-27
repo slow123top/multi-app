@@ -56,3 +56,21 @@ export { debounce, throttling };
 function isFunction(func) {
     return typeof func === 'function';
 }
+
+
+
+function debounce(func, delay) {
+    if (typeof func !== 'function') {
+        throw TypeError(func + 'is not a function');
+    }
+    return function () {
+        let timer;
+        const args = arguments;
+        if (timer) {
+            clearTimeout(timer);
+        }
+        timer = setTimeout(() => {
+            func.call(this, ...arguments);
+        }, delay);
+    }
+}

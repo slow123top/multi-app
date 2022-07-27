@@ -15,5 +15,4 @@ function buildTree(arr, i) {
     }
     return result;
 }
-
 console.log(binaryTree(['a', 'c', 'd', 'e', 'g']));
