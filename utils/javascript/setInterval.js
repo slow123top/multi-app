@@ -6,6 +6,7 @@ function interval(func, delay) {
         timer = setTimeout(interFunc, delay) // 递归调用
     }
     timer = setTimeout(interFunc, delay) // 触发递归
+    return timer;
 }
 
 interval(() => {
