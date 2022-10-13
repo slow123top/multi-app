@@ -28,13 +28,6 @@ function ershuzhihe(arr, target) {
                 result.push(result1[0]);
             }
         }
-        // exist[arr[i]] = true;
-        // for (let j = i + 1; j < arr.length; j++) {
-        //     if (arr[i] + arr[j] === target && !exist[arr[j]]) {
-        //         result.push([arr[i], arr[j]]);
-        //         exist[arr[j]] = true;
-        //     }
-        // }
     }
     // 去重
     return result;

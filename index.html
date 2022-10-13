@@ -4,25 +4,48 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>居中</title>
-    <style>
-      .left{
-        float: left;
-        width: 200px;
-        height: 200px;
-        background-color: black;
-      }
-      .left+div{
-        width: 300px;
-        height: 300px;
-        background-color: red;
-      }
-    </style>
+    <title>验证前端生成文字图片  canvas画图  生成base64</title>
   </head>
   <body>
-    <div class="left">
-
-    </div>
-    <div></div>
+    <div class="left"></div>
+    <script>
+      function createCanvas() {
+        var cvs = document.createElement("canvas");
+        cvs.setAttribute("height", 100);
+        cvs.setAttribute("width", 100);
+        let ctx = cvs.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(50, 50, 50, 0, 2 * Math.PI, false);
+        ctx.fillStyle = "green";
+        ctx.fill();
+        ctx.font = "50px Arial";
+        ctx.textBaseline = "middle";
+        ctx.textAlign = "center";
+        ctx.fillStyle = "#fff";
+        ctx.fillText("洋", 50, 50);
+        ctx.stroke();
+        cvs.toBlob(function(e) {
+          console.log(e);
+        });
+        return cvs;
+        return cvs.toDataURL();
+      }
+      // createCanvas();
+      function convertCanvasToImage(canvas) {
+        var image = new Image();
+        // 图片跨域处理
+        image.setAttribute("crossorigin", "anonymous");
+        image.src = canvas.toDataURL();
+        return image;
+      }
+      var con = document.getElementsByClassName("left")[0];
+      con.appendChild(convertCanvasToImage(createCanvas()));
+      // var pre = new Date().getTime();
+      // for (var i = 0; i < 10; i++) {
+      //   createCanvas();
+      // }
+      // var current = new Date().getTime();
+      // console.log(current - pre);
+    </script>
   </body>
 </html>

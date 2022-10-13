@@ -28,5 +28,4 @@ function atoi(str) {
     // 转换成数字
     // 边界大小
 }
-
 console.log(atoi('    -32 asdas'));

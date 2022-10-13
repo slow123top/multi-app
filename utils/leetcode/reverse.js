@@ -13,4 +13,4 @@ var reverse = function (x) {
     return result;
 };
 
-console.log(reverse(1534236469))
+console.log(reverse(1534236469));
