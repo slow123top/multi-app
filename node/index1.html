@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>测试广播服务器</title>
+  </head>
+  <body>
+    <div>测试</div>
+    <input type="text" id="input" />
+    <script>
+      var input = document.getElementById("input");
+      var socket = new WebSocket("ws://localhost:3000");
+      socket.onopen = function(event) {
+        console.log("Connection open ...");
+      };
+      socket.onmessage = function(event) {
+        var msg = event.data;
+        var node = document.createTextNode(msg);
+        var div = document.createElement("div");
+        div.appendChild(node);
+        document.body.insertBefore(div, input);
+        input.scrollIntoView();
+      };
+      socket.onclose = function(event) {
+        console.log("Connection closed ...");
+      };
+      input.onchange = function() {
+        var msg = input.value;
+        socket.send(msg);
+        input.value = "";
+      };
+    </script>
+  </body>
+</html>

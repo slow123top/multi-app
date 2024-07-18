@@ -8,34 +8,36 @@
   </head>
   <body>
     <div class="left"></div>
+    <!-- <iframe src="file:///E:/AAAAAlastWork/code/js/hy-ui/index.html" frameborder="0">
+      
+    </iframe> -->
     <script>
       function createCanvas() {
         var cvs = document.createElement("canvas");
-        cvs.setAttribute("height", 100);
-        cvs.setAttribute("width", 100);
+        cvs.setAttribute("height", 300);
+        cvs.setAttribute("width", 300);
         let ctx = cvs.getContext("2d");
         ctx.beginPath();
-        ctx.arc(50, 50, 50, 0, 2 * Math.PI, false);
+        ctx.arc(150, 150, 150, 0, 2 * Math.PI, false);
         ctx.fillStyle = "green";
         ctx.fill();
-        ctx.font = "50px Arial";
+        ctx.font = "150px Arial";
         ctx.textBaseline = "middle";
         ctx.textAlign = "center";
         ctx.fillStyle = "#fff";
-        ctx.fillText("洋", 50, 50);
+        ctx.fillText("奇", 150, 152);
+        ctx.strokeStyle="green";
         ctx.stroke();
-        cvs.toBlob(function(e) {
-          console.log(e);
-        });
-        return cvs;
-        return cvs.toDataURL();
+        return cvs.toDataURL('image/png',0.2);
       }
       // createCanvas();
-      function convertCanvasToImage(canvas) {
+      function convertCanvasToImage(base64) {
         var image = new Image();
         // 图片跨域处理
         image.setAttribute("crossorigin", "anonymous");
-        image.src = canvas.toDataURL();
+        image.src = base64;
+        // image.width = 300;
+        // image.height = 300;
         return image;
       }
       var con = document.getElementsByClassName("left")[0];
@@ -47,5 +49,6 @@
       // var current = new Date().getTime();
       // console.log(current - pre);
     </script>
+    <script src="./ui.js"></script>
   </body>
 </html>

@@ -10,3 +10,17 @@ Function.prototype.apply = function (thisArg) {
     const funcArguments = arguments[1];
     return thisArg.func(...funcArguments);
 }
+
+
+
+Function.prototype.applySelf = function(args){
+    if(!this){
+        new TypeError('this is not defined');
+    }
+    // 拿到被调用函数的引用
+    args.func = this;
+    if(arguments.length>1){
+        return args.func(...arguments[1]);
+    }
+    return args.func();
+}

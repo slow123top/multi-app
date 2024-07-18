@@ -12,7 +12,9 @@
     "build:babel": "node ./transform.js",
     "install": "npm install",
     "run:baohan": "node ./utils/leetcode/gui-fan-path.js",
-    "run:shuzi": "node ./test.js"
+    "run:shuzi": "node ./test.js",
+    "nodeNew": "node ./jd/new.js",
+    "nodecc":"node ./jd/cc.js"
   },
   "author": "无问西东",
   "license": "ISC",
@@ -20,13 +22,18 @@
     "@babel/polyfill": "^7.12.1",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.2.1",
     "@vue/babel-preset-jsx": "^1.2.4",
+    "cheerio": "^1.0.0-rc.12",
     "core-js": "^2.6.12",
+    "immutable": "^4.3.6",
     "iview": "^3.5.4",
     "reflect-metadata": "^0.1.13",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
     "vue": "^2.6.14",
     "vue-router": "^2.8.0",
     "vuex": "^4.0.2",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "ws": "^8.17.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.8",

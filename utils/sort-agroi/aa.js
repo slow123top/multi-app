@@ -30,11 +30,11 @@ r1.on('line', function (line) {
 });
 // readline()
 
-const readline = readline('readline');
-readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-})
-readline.on('line', function (line) {
+// const readline = readline('readline');
+// readline.createInterface({
+//     input: process.stdin,
+//     output: process.stdout
+// })
+// readline.on('line', function (line) {
     
-})
+// })

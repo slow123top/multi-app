@@ -5,6 +5,32 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "node cc",
+      "request": "launch",
+      "runtimeArgs": [
+        "run-script",
+        "nodecc"
+      ],
+      "runtimeExecutable": "npm",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
+    },
+  {
+    "name": "nodeNew",
+    "request": "launch",
+    "runtimeArgs": [
+      "run-script",
+      "nodeNew"
+    ],
+    "runtimeExecutable": "npm",
+    "skipFiles": [
+      "<node_internals>/**"
+    ],
+    "type": "node"
+  },
+    {
       "name": "Launch baohan",
       "request": "launch",
       "runtimeArgs": [

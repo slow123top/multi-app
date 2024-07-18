@@ -14,3 +14,11 @@ Function.prototype.call = function (thisArg) {
     }
     return thisArg.func();
 }
+
+
+Function.prototype.callSelf = function(args){
+    const context = arguments[0];
+    const params = Array.from(arguments).slice(1);
+    context.func = this;
+    return context.func(...params);
+}
