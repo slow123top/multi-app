@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sample</title>
+  </head>
+  <body>
+    <label for="textInput">Prompt：</label>
+    <input type="textarea" id="textInput" placeholder="您有什么问题" />
+    <button onclick="run_prompt('你们好，我是胡雨阳，我是你们的朋友')">
+      执行prompt
+    </button>
+    <p><textarea id="answer" rows="10" cols="50"></textarea></p>
+    <script>
+      const textareaElement = document.getElementsByTagName("textarea")[0];
+
+      function run_prompt() {
+        const value = "这是一个被 iOS Safari 使用的非标准属性。当用户在一些表单的文本后代控件中，输入/编辑一些文本值时，此属性控制了这些文本值的首字母是否大写或者使用其他的大写样式。如果 autocapitalize 属性在某个单独的表单后代控件被指定的话，那么此单独的设定会覆盖原来表单范围内的 autocapitalize 设定。默认值为 sentences。可以选择的值如下：";
+        const valueLen = value.length;
+        cycle(value);
+
+        //   .then(() => {
+        //     return toPromise(value[2])
+        //   })
+        //   .then(() => {
+        //     return toPromise(value[3])
+        //   })
+        //   .then(() => {
+        //     return toPromise(value[4])
+        //   })
+      }
+
+      function toPromise(value, delay = 500) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            textareaElement.value = textareaElement.value + value[0];
+            textareaElement.focus();
+            value = value.slice(1);
+            if (value.length) {
+              resolve(value);
+            }
+          }, delay);
+        });
+      }
+
+      function cycle(value) {
+        return toPromise(value).then((val) => cycle(val));
+      }
+
+      function setTimeoutFunc(value) {}
+    </script>
+  </body>
+</html>
