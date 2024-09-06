@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>实现一个简单模态框渐入渐出效果</title>
+    <style>
+        html,body{
+            height: 100%;
+        }
+      .modal-backup {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(1, 1, 1, 0.45);
+        display: none;
+        opacity: 0;
+        transition: .5s;
+        /* transition: opacity .5s ease-in-out,display .5s ease-in-out; */
+      }
+      /* .modal-backup:not(.show) {
+        opacity: 0;
+      }
+      .modal-backup.show {
+        opacity: 1;
+        display: block;
+      } */
+      .modal-backup.show .modal-container{
+        /* transform: none; */
+        /* opacity: 1; */
+        /* display: block; */
+      }
+      /* .modal-backup:not(.show) .modal-container{
+        
+      } */
+      .modal-container {
+        background-color: #fff;
+        position: absolute;
+        left: 50%;
+        top:50%;
+        width: 500px;
+        height: 800px;
+        transition:transform .2s linear;
+        transform:translateY(-50%)
+        /* margin-left: -50%; */
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="showModal(event)">触发</button>
+    <div class="modal-backup">
+      <!-- <div class="modal-container">
+        这是一个被 iOS Safari
+        使用的非标准属性。当用户在一些表单的文本后代控件中，输入/编辑一些文本值时，
+        此属性控制了这些文本值的首字母是否大写或者使用其他的大写样式。如果
+        autocapitalize 属性在某个单独的表单后代控件被指定的话，
+        那么此单独的设定会覆盖原来表单范围内的 autocapitalize 设定。默认值为
+        sentences。可以选择的值如下：
+      </div> -->
+    </div>
+    <script>
+        /**
+         * 第一种  使用transition  要有初始状态和结束状态
+         * 第二种 使用动画
+         * 
+        */
+      // 模态框背景
+      const modalBackup = document.getElementsByClassName("modal-backup")[0];
+      // 模态框容器
+      const modalContainer = document.getElementsByClassName(
+        "modal-container"
+      )[0];
+      function showModal(e) {
+        e.stopPropagation();
+        const isShow = modalBackup.classList.contains("show");
+        if (isShow) {
+          modalBackup.classList.remove("show");
+        //   modalBackup.style.display = 'none';
+          setTimeout(()=>{
+            modalBackup.style.display = 'none';
+
+         },500)
+         modalBackup.style.opacity = '0';
+        } else {
+          modalBackup.classList.add("show");
+          
+          setTimeout(()=>{
+            modalBackup.style.opacity = '1';
+          },500)
+          modalBackup.style.display = 'block';
+        }
+      }
+    </script>
+  </body>
+</html>
