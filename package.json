@@ -14,7 +14,8 @@
     "run:baohan": "node ./utils/leetcode/gui-fan-path.js",
     "run:shuzi": "node ./test.js",
     "nodeNew": "node ./jd/new.js",
-    "nodecc":"node ./jd/cc.js"
+    "nodecc":"node ./jd/cc.js",
+    "nodeGroup":"node ./group.js"
   },
   "author": "无问西东",
   "license": "ISC",

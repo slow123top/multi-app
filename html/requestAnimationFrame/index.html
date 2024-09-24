@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="some-element-you-want-to-animate">
+        你好我是胡雨阳
+    </div>
+    <script>
+        const element = document.getElementById("some-element-you-want-to-animate");
+let start;
+
+function step(timestamp) {
+  if (start === undefined) {
+    start = timestamp;
+  }
+  const elapsed = timestamp - start;
+
+  // Math.min() is used here to make sure the element stops at exactly 200px
+  const shift = Math.min(0.1 * elapsed, 200);
+  element.style.transform = `translateX(${shift}px)`;
+  if (shift < 200) {
+    requestAnimationFrame(step);
+  }
+}
+
+requestAnimationFrame(step);
+    </script>
+</body>
+</html>
